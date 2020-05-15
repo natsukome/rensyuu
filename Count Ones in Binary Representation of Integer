@@ -1,0 +1,9 @@
+using System.Linq;
+using System;
+public class Program
+{
+    public static int CountOnes(int i)
+    {
+			return Convert.ToString(i,2).ToCharArray().Where(a=>a=='1').Count();
+    }
+}
