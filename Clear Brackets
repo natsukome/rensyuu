@@ -1,0 +1,15 @@
+using System.Linq;
+public class Program
+{
+    public static bool Brackets(string str)
+    {
+			int count = 0;
+			char[] chs = str.ToCharArray().Where(a => a=='(' || a==')').ToArray();
+    	for(int i=0; i<chs.Length;i++){
+				if(chs[i]=='(' && 0<=count) count++;
+				else if(chs[i]==')' && 1<=count) count--;
+				else return false;
+			}
+			return true;
+		}
+}
