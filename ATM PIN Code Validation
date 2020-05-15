@@ -1,0 +1,10 @@
+using System.Text.RegularExpressions;
+
+public class Program 
+{
+    public static bool ValidatePIN(string pin) 
+    {
+      if(Regex.IsMatch(pin, @"^(\d{4}|\d{6})$")) return true;
+			return false;
+    }
+}
