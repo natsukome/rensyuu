@@ -1,0 +1,8 @@
+
+public class Program 
+{
+    public static string GetMiddle(string str) 
+    {
+      return str.Length%2==0 ? str.Substring((int)str.Length/2-1,2) : str[(int)str.Length/2].ToString();
+    }
+}
