@@ -1,0 +1,9 @@
+using System.Text.RegularExpressions;
+
+public class Program
+{
+    public static string ReplaceVowels(string str, string ch)
+    {
+			return Regex.Replace(str,@"[aiueo]",ch);
+    }
+}
