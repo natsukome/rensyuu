@@ -1,0 +1,11 @@
+using System;
+using System.Linq;
+public class Program 
+{
+    public static int SumSmallest(int[] values) 
+    {
+			Array.Sort(values);
+			return values.Where(a => a>0).Take(2).Sum();
+			
+    }
+}
