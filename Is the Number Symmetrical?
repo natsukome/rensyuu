@@ -1,0 +1,33 @@
+using System;
+
+public class Program
+{
+    public static bool IsSymmetrical(int num)
+    {
+        for(int i=0; i<((int)Math.Log10(num)+1)/2;i++){
+            if((int)((num%Math.Pow(10,i+1)-num%Math.Pow(10,i))/Math.Pow(10,i)) == (num%Math.Pow(10,(int)Math.Log10(num)+1-i)-num%Math.Pow(10,(int)Math.Log10(num)-i))/Math.Pow(10,(int)Math.Log10(num)-i)){
+                continue;
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+//or
+
+using System.Linq;
+public class Program
+{
+    public static bool IsSymmetrical(int num)
+    {
+        bool result = false;
+        string numm = num.ToString();
+        if (string.Concat(numm.Reverse()) == numm)
+        {
+            result = true;
+        }
+        return result;
+    }
+}
