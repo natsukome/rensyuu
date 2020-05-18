@@ -1,0 +1,9 @@
+using System.Linq;
+
+public class Program
+    {
+        public static int[] FilterArray(object[] arr)
+        {
+            return arr.OfType<int>().ToArray();
+        }
+    }
