@@ -1,0 +1,9 @@
+using System.Text.RegularExpressions;
+
+public class Program 
+{
+    public static bool IsValidPhoneNumber(string str) 
+    {
+      return Regex.IsMatch(str, @"^\(\d{3}\)\s\d{3}-\d{4}$");
+    }
+}
