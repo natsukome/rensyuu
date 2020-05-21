@@ -1,0 +1,9 @@
+public class Program
+{
+	public static int gcd(int n1, int n2)
+	{
+		int tmp = n1>n2 ? n2+1: n1+1;
+		while(tmp-->0 && (n1%tmp!=0 || n2%tmp != 0));
+		return tmp;
+	}
+}
