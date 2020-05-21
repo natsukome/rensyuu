@@ -1,0 +1,48 @@
+public class Program 
+{
+    public static string LandscapeType(int[] arr) 
+    {
+			int pre = arr[0];
+			bool isM = false;
+			bool isV = false;
+			bool sswitch = false;
+			foreach(int i in arr){
+				if(pre == i){}
+				if(isM == true && sswitch == false){
+					sswitch = pre < i ? false : true; 
+					pre = i;
+					continue;
+				}else if(isV == true && sswitch == false){
+					sswitch = pre > i ? false : true;
+					pre = i;
+					continue;
+				}
+				if(isM == true && sswitch == true){
+					sswitch = pre >= i ? true : false;
+					pre = i;
+					if(sswitch == false) break;
+					continue;
+				}else if(isV == true && sswitch == true){
+					sswitch = pre <= i ? true : false;
+					pre = i;
+					if(sswitch == false) break;
+					continue;
+				}
+				
+				if(pre == i){
+					continue;
+				}else if(pre < i){
+					isM = true;
+				}else if(pre > i){
+					isV = true;
+				}
+			}
+			if(isM == true && sswitch == true){
+				return "mountain";
+			}else if(isV ==true && sswitch == true){
+				return "valley";
+			}else{
+				return "neither";
+			}
+    }
+}
