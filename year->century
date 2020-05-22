@@ -1,0 +1,20 @@
+using System;
+
+public class Program
+{
+    public static string Century(int year)
+    {
+			double y = Math.Ceiling((double)year/100);
+			if(y == 11){
+				return y.ToString() + "th century";
+    	}else if(y - Math.Truncate(y/10)*10 == 2){
+				return y.ToString() + "nd century";
+			}else if(y - Math.Truncate(y/10)*10 == 3){
+				return y.ToString() + "rd century";
+    	}else if(y - Math.Truncate(y/10)*10 == 1){
+				return y.ToString() + "st century";
+    	}else{
+				return y.ToString() + "th century";
+			}
+		}
+}
