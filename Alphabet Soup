@@ -1,0 +1,10 @@
+using System.Linq;
+using System;
+
+public class Program 
+{
+    public static string AlphabetSoup(string str) 
+    {
+      return string.Concat(str.OrderBy(a => a));
+    }
+}
