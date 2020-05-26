@@ -1,0 +1,9 @@
+using System.Linq;
+using System;
+public class Program 
+{
+    public static string ReverseCase(string str) 
+    {
+			return new string(str.Select(a=>Char.IsUpper(a)? Char.ToLower(a): Char.ToUpper(a)).ToArray());
+    }
+}
