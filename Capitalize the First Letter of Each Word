@@ -1,0 +1,29 @@
+using System;
+using System.Linq;
+public class Program 
+{
+    public static string MakeTitle(string str) => string.Join(" ", str.Split(' ').Select(s => char.ToUpper(s[0]) + s.Substring(1)));
+}
+
+
+equals ↓
+
+using System;
+using System.Linq;
+public class Program 
+{
+    public static string MakeTitle(string str) 
+    {
+			char pre = ' ';
+			string st = "";
+      foreach(char ch in str){
+				if(pre==' '){
+					st += char.ToUpper(ch);
+				}else{
+					st += ch;
+				}
+				pre = ch;
+			}
+			return st;
+    }
+}
