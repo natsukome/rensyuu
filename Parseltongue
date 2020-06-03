@@ -1,0 +1,12 @@
+using System.Text.RegularExpressions;
+public class Program
+{
+    public static bool IsParselTongue(string sentence)
+    {
+			return Regex.IsMatch(sentence,@"ss", RegexOptions.IgnoreCase) && !Regex.IsMatch(sentence,@"\b[^s]*s[^s]*\b", RegexOptions.IgnoreCase);
+    }
+}
+
+
+結構上出来やで
+// check not contains a single "s" 
