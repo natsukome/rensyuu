@@ -1,0 +1,17 @@
+// check like this: 1 < 2 < 6 < 9 > 3 is true or not
+
+using System;
+
+public class Program 
+{
+    public static bool CorrectSigns(string str) 
+    {
+			string[] strs = str.Split(new char[]{' '});
+			for(int i=0; i<(int)(strs.Length-1)/2; i+=2){
+				if(int.Parse(strs[i])>int.Parse(strs[i+2])&&strs[i+1]==">") continue;
+				if(int.Parse(strs[i])<int.Parse(strs[i+2])&&strs[i+1]=="<") continue;
+				return false;
+			}
+			return true;
+    }
+}
