@@ -1,0 +1,10 @@
+using System.Linq;
+using System;
+
+public class Program 
+{
+    public static string OddishOrEvenish(int num) 
+    {
+			return num.ToString().ToCharArray().Select(a=>int.Parse(a.ToString())).Aggregate(0,(sum,next)=> sum+=next)%2==0?"Evenish":"Oddish";
+    }
+}
