@@ -1,0 +1,9 @@
+using System.Text.RegularExpressions;
+
+public class Program
+{
+    public static bool IsValidIP(string IP)
+    {
+			return Regex.IsMatch(IP, @"[^0]$") && Regex.IsMatch(IP, @"^\d+\.(?!0)\d+(?!0)\.(?!0)\d+(?!0)\.(?!0)\d+$");
+    }
+}
