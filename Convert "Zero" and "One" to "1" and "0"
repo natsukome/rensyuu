@@ -1,0 +1,12 @@
+using System.Linq;
+using System;
+using System.Text.RegularExpressions;
+
+public class Program 
+{
+    public static string TextToNumberBinary(string str) 
+    {
+			string st = new string(str.Split(new char[]{' '}).Where(a => Regex.IsMatch(a, @"one|zero", RegexOptions.IgnoreCase)).Select(a => a.ToLower() == "one" ? '1': '0').ToArray());
+			return st.Substring(0, (int)(st.Length/8)*8);
+    }
+}
