@@ -1,0 +1,45 @@
+using System.Text.RegularExpressions;
+
+public class Program 
+{
+    public static string ToSnakeCase(string str) 
+    {
+		    return Regex.Replace(str, "[A-Z]", "_$0").ToLower();
+    }
+    public static string ToCamelCase(string str) 
+    {
+			  return  Regex.Replace(str, "_[a-z]", delegate(Match m) {
+				    return m.ToString().TrimStart('_').ToUpper();
+			  });
+    }
+}
+
+
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Linq;
+
+public class Program 
+{
+    public static string ToSnakeCase(string str) 
+    {
+			StringBuilder sb = new StringBuilder(str);
+			MatchCollection ma = Regex.Matches(str, @"(?<large>[A-Z])");
+			for(int i=0; i< ma.Count; i++) {
+				sb.Insert(ma[i].Index + i, "_");
+				sb.Replace(ma[i].Groups["large"].Value, ma[i].Groups["large"].Value.ToLower(), ma[i].Index + 1 + i, 1);
+			}
+			return sb.ToString();
+		}
+    public static string ToCamelCase(string str) 
+    {
+			StringBuilder sb = new StringBuilder(str);
+			int max = str.Length - str.Replace("_","").Length;
+			for(int i=0; i< max; i++) {
+				sb.Replace(str[str.IndexOf('_')+1], char.ToUpper(str[str.IndexOf('_')+1]), str.IndexOf('_')+1, 1);
+				sb.Remove(str.IndexOf('_'), 1);
+				str = sb.ToString();
+			}
+			return sb.ToString();
+    }
+}
