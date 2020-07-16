@@ -1,0 +1,3 @@
+function isOrthogonal(arr1, arr2) {
+	return arr1.map((i, idx) => i * arr2[idx]).reduce((pre, next)=> pre + next, 0) === 0
+}
