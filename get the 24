@@ -1,0 +1,103 @@
+function solve24 (numStr) {
+  // Good luck!
+  const ops = ['+', '-', '*', '/'];
+  let opsMaster = []
+  let opsSet = ['a','b','c']
+  const nums = numStr.split('').map(v => Number(v))
+  let numsMaster = []
+  let numsSet = [1,2,3,4]
+  for(let i=0; i<4; i++){
+    opsSet[0] = ops[i]
+    for(let j=0; j<4; j++){
+      opsSet[1] = ops[j]
+      for(let k=0; k<4; k++){
+        opsSet[2] = ops[k]
+        opsMaster.push([...opsSet])
+      }
+    }
+  }
+  for(let i=0; i<4; i++){
+    numsSet[0] = nums[i]
+    for(let j=0; j<4; j++){
+      if(i == j) continue;
+      numsSet[1] = nums[j]
+      for(let k=0; k<4; k++){
+        if(i == k || j == k) continue;
+        numsSet[2] = nums[k]
+        for(let l=0; l<4; l++){
+          if(i == l || j == l || k == l) continue;
+          numsSet[3] = nums[l]
+          numsMaster.push([...numsSet])
+        }
+      }
+    }
+  }
+
+  for(let opss of opsMaster){
+    for(let numss of numsMaster){
+      let pre = numss[0]
+      let pre2 = numss[2]
+      let result = 0
+      switch(opss[0]){
+        case '+':
+          pre = pre + numss[1]
+        break
+        case '-':
+          pre = pre - numss[1]
+        break
+        case '*':
+          pre = pre * numss[1]
+        break
+        case '/':
+          pre = pre / numss[1]
+        break
+        default:
+          return 'something is wrong'
+      }
+      
+      switch(opss[2]){
+        case '+':
+          pre2 = pre2 + numss[3]
+        break
+        case '-':
+          pre2 = pre2 - numss[3]
+        break
+        case '*':
+          pre2 = pre2 * numss[3]
+        break
+        case '/':
+          pre2 = pre2 / numss[3]
+        break
+        default:
+          return 'something is wrong'
+      }
+
+      switch(opss[1]){
+        case '+':
+          result = pre + pre2
+        break
+        case '-':
+          result = pre - pre2
+        break
+        case '*':
+          result = pre * pre2
+        break
+        case '/':
+          result = pre / pre2
+        break
+        default:
+          return 'something is wrong'
+      }
+      if(result === 24){
+        console.log(opss, numss)
+        return true
+      }
+
+
+    }
+  }
+  return 'none is match';
+}
+
+
+console.log(solve24('9993'))
